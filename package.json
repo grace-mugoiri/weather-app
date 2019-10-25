@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "This is a weather app that lets you see the different climates in different cities from all over the world.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grace-mugoiri/weather-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grace-mugoiri/weather-app/issues"
+  },
+  "homepage": "https://github.com/grace-mugoiri/weather-app#readme",
+  "devDependencies": {
+    "eslint": "^6.5.1"
+  }
+}
