@@ -6,7 +6,7 @@ window.onclick = function (event) {
     const dropdowns = document.getElementsByClassName('dropdown-content');
     let i;
     for (i = 0; i < dropdowns.length; i++) {
-      let openDropDown = dropdowns[i];
+      const openDropDown = dropdowns[i];
       if (openDropDown.classList.contains('show')) {
         openDropDown.classList.remove('show');
       }
@@ -20,14 +20,14 @@ const displayWeather = (weather, temp) => {
 
 const fetchWeather = (cities) => {
   const city = cities;
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ city }&appid=${ myKey }`, { mode: 'cors' })
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, {mode: 'cors'})
     .then(response => response.json())
     .then((response) => {
-      let weather = response.name;
+      const weather = response.name;
       displayWeather(response.weather[0].description, response.main.temp);
     })
     .catch(() => {
-      document.getElementById('the-weather').innerText = "THAT IS NOT A VALID CITY. CHOOSE AGAIN PLEASE!";
+      document.getElementById('the-weather').innerText = 'THAT IS NOT A VALID CITY. CHOOSE AGAIN PLEASE!';
     });
 };
 form.addEventListener('submit', (event) => {
