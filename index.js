@@ -20,8 +20,8 @@ const displayWeather = (weather, temp) => {
 
 const fetchWeather = (cities) => {
   const city = cities;
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, {mode: 'cors'})
-    .then(response => response.json())
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, { mode: 'cors' })
+    .then((response) => response.json())
     .then((response) => {
       const weather = response.name;
       displayWeather(response.weather[0].description, response.main.temp);
