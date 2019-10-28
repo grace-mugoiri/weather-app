@@ -1,6 +1,6 @@
-const form = document.querySelector('form');
-
 const myKey = 'c6ee67c2af79dc6be8e156787df2cbfe';
+
+const form = document.querySelector('form');
 
 window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
@@ -22,9 +22,8 @@ const displayWeather = (weather, temp) => {
 const fetchWeather = (cities) => {
   const city = cities;
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, { mode: 'cors' })
-	.then(response => response.json())
+    .then((response) => response.json())
     .then((response) => {
-      const weather = response.name;
       displayWeather(response.weather[0].description, response.main.temp);
     })
     .catch(() => {
