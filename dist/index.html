@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./../assets/css/custom.css" type="text/css">
+	<title>Weather App</title>
+</head>
+<body>
+	<div class="content">
+		<h3>Curious about the weather?</h3>
+		<form action="" class="weather-form" id="forms">
+			<input type="text" class="enter-city" pattern="[0-9]{5}" title="5 digit zip code" placeholder="Enter 5 digit zip code">
+		</form>
+		<div class="loader"></div>
+		<div id="currentPlace"></div>
+		<div id="currentDesc"></div>
+		<div id="humidity"></div>
+		<img id="currentIcon" src=""><br>
+		<span id="currentTemp"></span>
+	</div>
+
+	<script src="./../src/index.js"></script>
+	<script src="./../dist/main.js"></script>
+</body>
+</html>

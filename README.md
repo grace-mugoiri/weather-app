@@ -12,10 +12,6 @@ Find it at [here](https://www.theodinproject.com/courses/javascript/lessons/weat
 - HTML 5
 - CSS 3
 
-## Deployment
-
-- [Online Deployment](https://shjang7.github.io/tendo-note/dist/index.html)
-
 ## Contributors
 
 This is a solo project by: [Grace Mugoiri](https://github.com/grace-mugoiri)
