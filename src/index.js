@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
   let long;
   const myKey = 'c6ee67c2af79dc6be8e156787df2cbfe';
   let city;
-	const cityRegEx = /(?<city>\w+)/;
+	// const cityRegEx = /(?<city>\w+)/;
 
   const cityName = document.querySelector('#city-name');
   const mainContent = document.getElementById('main-content');
@@ -38,9 +38,9 @@ window.addEventListener('load', () => {
     e.preventDefault();
     mainContent.classList.remove('rainy', 'cloudy', 'clear');
     const location = document.querySelector('#city-name').value;
-    cityName.textContent = `${location}`;
+    cityName.textContent = `${city-name}`;
     if (location.length > 0) {
-      city = location.match(cityRegEx).groups.city;
+      city = location
       document.querySelector('#city-name').value = '';
 
       const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
