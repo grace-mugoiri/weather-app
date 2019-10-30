@@ -85,7 +85,7 @@ window.addEventListener('load', () => {
         })
         .catch(e => e);
     } else {
-      alert('Enter city')
+      alert('Enter city');
     }
   });
 });
