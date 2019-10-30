@@ -67,7 +67,7 @@ window.addEventListener('load', () => {
     e.preventDefault();
     mainContent.classList.remove('rainy', 'cloudy', 'clear');
     const location = document.querySelector('#city-name').value;
-    cityName.textContent = `${city-name}`;
+    cityName.textContent = `${city-name}`
     if (location.length > 0) {
       city = location;
       document.querySelector('#city-name').value = '';
@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
           displayWeather(description, temp, name, main);
         })
         .catch((e) => {
-					console.log(e)
+          console.log(e);
         });
     } else {
       alert('Enter a city');
