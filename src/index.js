@@ -67,7 +67,7 @@ window.addEventListener('load', () => {
     e.preventDefault();
     mainContent.classList.remove('rainy', 'cloudy', 'clear');
     const location = document.querySelector('#city-name').value;
-    cityName.textContent = `${city-name}`;
+    cityName.textContent = `${location}`;
     if (location.length > 0) {
       city = location;
       document.querySelector('#city-name').value = '';
