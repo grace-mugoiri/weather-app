@@ -57,11 +57,11 @@ h3 {
 	color: #F7F7F7;
 }
 .weather-info:hover .temp-type{
-	color: F7F7F7;
+	color: #F7F7F7;
 }
 
 .temp{
-    color: F7F7F7;
+    color: #F7F7F7;
     font-size: 50px;
     pointer-events: auto;
     transition: color 1s;
