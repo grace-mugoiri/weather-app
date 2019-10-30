@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
   let long;
   const myKey = 'c6ee67c2af79dc6be8e156787df2cbfe';
   let city;
-  const cityRegEx = /(?<city>\w+)/;
+	const cityRegEx = /(?<city>\w+)/;
 
   const cityName = document.querySelector('#city-name');
   const mainContent = document.getElementById('main-content');
