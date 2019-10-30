@@ -16,23 +16,22 @@ window.addEventListener('load', () => {
   mainContent.classList.remove('rainy', 'cloudy', 'clear');
 
   function displayWeather(description, temp, main, name) {
-    const celsius = Math.round(temp - 273.15);
-    const fahrenheit = Math.round((temp - 273.15) * 1.8 + 32);
-
     weatherDesc.textContent = description;
     weatherInfo.textContent = name;
     weatherType.textContent = main;
-    currentTemp.textContent = `${celsius}`;
 
     alert('click degrees to see in °C or °F');
 
-    tempSection.addEventListener('click', () => {
+    tempSection.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      const celsius = Math.round(temp - 273.15);
+      const fahrenheit = Math.round((temp - 273.15) * 1.8 + 32);
       if (tempSectionSpan.textContent === '°C') {
         tempSectionSpan.textContent = '°F';
-        currentTemp.textContent = `${fahrenheit}`;
+        currentTemp.textContent = fahrenheit;
       } else {
         tempSectionSpan.textContent = '°C';
-        currentTemp.textContent = `${celsius}`;
+        currentTemp.textContent = celsius;
       }
     });
 
@@ -64,9 +63,10 @@ window.addEventListener('load', () => {
   }
 
   document.querySelector('#search-form').addEventListener('submit', (e) => {
+    e.stopImmediatePropagation();
     e.preventDefault();
     mainContent.classList.remove('rainy', 'cloudy', 'clear');
-    const location = document.querySelector('#city-name').value;
+    const location = cityName.value;
     cityName.textContent = `${location}`;
     if (location.length > 0) {
       city = location;
@@ -85,7 +85,7 @@ window.addEventListener('load', () => {
         })
         .catch(e => e);
     } else {
-      alert('Enter city');
+      alert('Enter a city');
     }
   });
 });
