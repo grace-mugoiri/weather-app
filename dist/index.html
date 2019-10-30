@@ -8,18 +8,31 @@
 	<title>Weather App</title>
 </head>
 <body>
-	<div class="content">
-		<h3>Curious about the weather?</h3>
-		<form action="" class="weather-form" id="forms">
-			<input type="text" class="enter-city" pattern="[0-9]{5}" title="5 digit zip code" placeholder="Enter 5 digit zip code">
-		</form>
-		<div class="loader"></div>
-		<div id="currentPlace"></div>
-		<div id="currentDesc"></div>
-		<div id="humidity"></div>
-		<img id="currentIcon" src=""><br>
-		<span id="currentTemp"></span>
-	</div>
+	<div id="main-content">
+		<div class="content">
+			<div class="form-content">
+				<h3>Curious about the weather?</h3>
+				 <form id="search-form">
+				   <input type="text" name="city" placeholder="City" id="city-name">
+				   <input type="submit" name="submit" value="Submit">
+				 </form>
+			   </div>
+
+			  <div class="weather-content">
+				<h1 class="weather-location">Nairobi</h1>
+			  </div>
+
+			  <div class="weather-info">
+				<h2 class="temp">Cloudy</h2>
+				<div class="temp-section">
+				  <p class="temp-type">28</p>
+				  <span>°C</span>
+				</div>
+			  </div>
+
+			  <h2 class="weather-description"></h2>
+			</div>
+		  </div>
 
 	<script src="./../src/index.js"></script>
 	<script src="./../dist/main.js"></script>

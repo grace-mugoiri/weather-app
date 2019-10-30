@@ -1,48 +1,102 @@
-const currentTemp = document.querySelector('#currentTemp');
-const currentDesc = document.querySelector('#currentDesc');
-const currentPlace = document.querySelector('#currentPlace');
-const humidity = document.querySelector('#humidity');
-const currentIcon = document.querySelector('#currentIcon');
+window.addEventListener('load', () => {
+	let lat;
+	let long;
+	let myKey = 'c6ee67c2af79dc6be8e156787df2cbfe';
+	let city;
+	const cityRegEx = /(?<city>\w+)/;
 
-const body = document.querySelector('body');
-let city = '60608';
+	const cityName = document.querySelector('#city-name');
+	const mainContent = document.getElementById('main-content');
+	const weatherDesc = document.querySelector('.weather-description');
+	const currentTemp = document.querySelector('.temp-type');
+	const weatherInfo = document.querySelector('.weather-location');
+	const weatherType = document.querySelector('.temp');
+  const tempSection = document.querySelector('.temp-section');
+  const tempSectionSpan = document.querySelector('.temp-section span');
 
-document.querySelector('form').addEventListener('submit', function(e) {
-	e.preventDefault();
-	city = document.querySelector('input').value;
-	loader();
-});
+	mainContent.classList.remove('rainy', 'cloudy', 'clear')
 
-function weather() {
-	fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${city},us&units=imperial&APPID=c6ee67c2af79dc6be8e156787df2cbfe`, { mode: 'cors' })
-	.then(function(response) {
-		document.querySelector('.loader').style.display = 'none';
-		return response.json();
-	})
-	.then(function(response) {
-		let temps = Math.round(new Date().getTime() / 1000) + 86400;
-		if (temps < response.sys.sunset) {
-			body.backgroundImage = "url('./../assets/images/rainy.jpg')";
-		}
-		else {
-			body.backgroundImage = "url('./../assets/images/sunny.jpg)";
-		}
-		const iconCode = response.weather[0].icon;
-		const iconUrl = 'http://openweathermap.org/img/w/' + iconCode + '.png';
-		currentIcon.src = iconUrl;
-		currentTemp.innerHTML = response.main.temp.toFixed(0) + ' F';
-		currentDesc.innerHTML = response.weather[0].description;
-		humidity.innerHTML = 'Humidity: ' + response.main.humidity;
-		currentPlace.innerHTML = response.name;
-	})
-	.catch(function(error) {
-		alert('THAT IS NOT A VALID CITY. CHOOSE AGAIN PLEASE!');
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(position => {
+			lat = position.coords.latitude;
+			long = position.coords.longitude;
+
+			const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myKey}`;
+			fetch(weatherApi, {mode: 'cors'})
+			.then(response => {
+					return response.json();
+			})
+			.then(data => {
+				const {temp, humidity} = data.main;
+				const {main, description} = data.weather[0];
+				const name = data.name;
+
+				displayWeather(description, temp, name, main);
+			});
+		});
+	};
+
+	document.querySelector('#search-form').addEventListener('submit', function(e) {
+		e.preventDefault();
+		mainContent.classList.remove('rainy', 'cloudy', 'clear')
+		const location = document.querySelector('#city-name').value
+		cityName.textContent = `${location}`
+		if (location.length > 0) {
+			city = location.match(cityRegEx).groups.city;
+			document.querySelector('#city-name').value = '';
+
+			const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`
+
+			fetch(weatherApi, {mode: 'cors'})
+				.then(response => {
+					return response.json();
+				})
+				.then(data => {
+					console.log(data);
+					const {temp, humidity} = data.main;
+					const {main, description} = data.weather[0];
+					const name = data.name;
+
+					displayWeather(description, temp, name, main);
+
+				})
+				.catch(e => {
+					console.log(e);
+				})
+			}
+			else {
+				alert('Enter a city');
+			}
 	});
-}
 
-function loader() {
-	document.querySelector('.loader').style.display = 'block';
-	weather();
-}
+	function displayWeather(description, temp, main, name) {
+		const celsius = Math.round(temp - 273.15);
+		const fahrenheit = Math.round((temp - 273.15) * 1.8 + 32);
 
-window.onload(weather());
+		weatherDesc.textContent = description;
+		weatherInfo.textContent = name;
+    weatherType.textContent = main;
+		currentTemp.textContent = `${celsius}`;
+
+		alert('click degrees to see in °C or °F')
+
+		tempSection.addEventListener('click', () => {
+      if (tempSectionSpan.textContent === "°C"){
+        tempSectionSpan.textContent = "°F"
+        currentTemp.textContent = `${fahrenheit}`
+      }else {
+        tempSectionSpan.textContent = "°C"
+        currentTemp.textContent = `${celsius}`;
+      }
+		});
+
+		if (description.includes("rain")) {
+      mainContent.classList.add("rainy")
+    } else if (description.includes("cloud")) {
+      mainContent.classList.add("cloudy")
+    } else {
+      mainContent.classList.add("clear");
+    }
+	}
+
+});
