@@ -83,12 +83,9 @@ window.addEventListener('load', () => {
 
           displayWeather(description, temp, name, main);
         })
-        .catch((e) => {
-          console.log(e);
-        });
-    } else {
-      alert('Enter a city');
+        .catch(() => {
+          alert('City not found');
+				});
     }
   });
-
 });
