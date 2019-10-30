@@ -13,9 +13,9 @@ window.addEventListener('load', () => {
   const tempSection = document.querySelector('.temp-section');
   const tempSectionSpan = document.querySelector('.temp-section span');
 
-	mainContent.classList.remove('rainy', 'cloudy', 'clear');
+  mainContent.classList.remove('rainy', 'cloudy', 'clear');
 
-	function displayWeather(description, temp, main, name) {
+  function displayWeather(description, temp, main, name) {
     const celsius = Math.round(temp - 273.15);
     const fahrenheit = Math.round((temp - 273.15) * 1.8 + 32);
 
@@ -69,7 +69,7 @@ window.addEventListener('load', () => {
     const location = document.querySelector('#city-name').value;
     cityName.textContent = `${city-name}`;
     if (location.length > 0) {
-      city = location
+      city = location;
       document.querySelector('#city-name').value = '';
 
       const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
           displayWeather(description, temp, name, main);
         })
         .catch((e) => {
-					return e;
+					console.log(e)
         });
     } else {
       alert('Enter a city');
