@@ -1,4 +1,4 @@
-# Tendo-note
+# Weather App
 This is a weather app that lets you see the different climates in different cities from all over the world.
 
 This is part of the Javascript Project in the Odin Project's Curriculum. <br />
@@ -12,17 +12,13 @@ Find it at [here](https://www.theodinproject.com/courses/javascript/lessons/weat
 - HTML 5
 - CSS 3
 
-## Deployment
-
-- [Online Deployment](https://shjang7.github.io/tendo-note/dist/index.html)
-
 ## Contributors
 
-This is a collaborative project by us: [Suhyeon Jang](https://github.com/shjang7) [Grace Mugoiri](https://github.com/grace-mugoiri)
+This is a solo project by: [Grace Mugoiri](https://github.com/grace-mugoiri)
 
 ## Contributing
 
-1. Fork it (https://github.com/shjang7/tendo-note/fork)
+1. Fork it (https://github.com/grace-mugoiri/weather-app)
 2. Create your feature branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -am 'what this commit will fix/add')
 4. Push to the branch (git push origin feature/[chosen-name])
