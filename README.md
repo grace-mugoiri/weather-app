@@ -12,6 +12,9 @@ Find it at [here](https://www.theodinproject.com/courses/javascript/lessons/weat
 - HTML 5
 - CSS 3
 
+## Live version
+Check on the browser https://grace-mugoiri.github.io/weather-app/
+
 ## Contributors
 
 This is a solo project by: [Grace Mugoiri](https://github.com/grace-mugoiri)
