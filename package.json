@@ -4,7 +4,9 @@
   "description": "This is a weather app that lets you see the different climates in different cities from all over the world.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --progress --mode=development",
+    "watch": "webpack --progress --watch"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,11 @@
   },
   "homepage": "https://github.com/grace-mugoiri/weather-app#readme",
   "devDependencies": {
-    "eslint": "^6.5.1"
-  }
+    "eslint": "^6.5.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "prettier-eslint": "^9.0.0"
+  },
+  "dependencies": {},
+  "keywords": []
 }
