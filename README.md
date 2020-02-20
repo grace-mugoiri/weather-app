@@ -31,5 +31,5 @@ This is a solo project by: [Grace Mugoiri](https://github.com/grace-mugoiri)
 After cloning, go to your dist folder and you will see index file. Open that to your prefered browser.
 
 ## screenshot sample of the page
-![Uploading Screen Shot 2020-02-20 at 08.49.06.png…]()
+<img width="1233" alt="Screen Shot 2020-02-20 at 08 49 06" src="https://user-images.githubusercontent.com/20679425/74905505-6feec780-53bf-11ea-8c14-1ab40c64e39a.png">
 
