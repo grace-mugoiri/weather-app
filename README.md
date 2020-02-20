@@ -13,7 +13,7 @@ Find it [here](https://www.theodinproject.com/courses/javascript/lessons/weather
 - CSS 3
 
 ## Live version
-View the project on your browser here. https://grace-mugoiri.github.io/weather-app/
+View the project on your browser here. (https://grace-mugoiri.github.io/weather-app/dist/index.html)
 
 ## Contributors
 
@@ -28,4 +28,8 @@ This is a solo project by: [Grace Mugoiri](https://github.com/grace-mugoiri)
 5. Create a new Pull Request
 
 ## Starting up the app
-Simply go to your html file and open it using your prefered browser.
+After cloning, go to your dist folder and you will see index file. Open that to your prefered browser.
+
+## screenshot sample of the page
+![Uploading Screen Shot 2020-02-20 at 08.49.06.png…]()
+
